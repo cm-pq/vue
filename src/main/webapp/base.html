@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    原始
+    {{message}}<br>
+    绑定
+    <input type="text" v-bind:value="message"><br>
+    v-model
+    <input type="text" v-model="ass"> {{ass}}<br>
+    事件
+    <button v-on:click="sayHi()">点击</button>
+    <br>
+    if
+    <div v-if="a">
+        <span>这是if</span>
+    </div>
+    <div v-else>
+        <span>这是else</span>
+    </div>
+    <br>
+    循环
+    <div v-for="entity in msg">
+        <span>{{entity}}</span>
+    </div>
+</div>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data:
+            {
+                message: "大大",
+                a:true,
+                msg:[1,2,3],
+                ass:"niaho"
+            },
+        methods: {
+            sayHi: function () {
+                alert(this.message)
+            }
+        }
+    });
+</script>
+</body>
+</html>

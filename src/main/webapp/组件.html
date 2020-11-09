@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml"
+      xmlns:v-model="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+</head>
+<body >
+
+<div id="app">
+<!-- 这个循环只是循环次数,他的值没有传递过来,需要靠v-bind绑定,props接收.
+注意:span 代表的是props的span,后面li代表循环的数值 -->
+   <zu v-for="li in list" v-bind:span="li"></zu>
+</div>
+
+<script>
+    //注册一个组件
+    Vue.component("zu",{
+        props:['span'],
+        template: '<span>{{span}}</span>'
+    });
+
+    new Vue({
+      el:'#app',
+         data:{
+          list:[1,2,3]
+     },
+    });
+</script>
+</body>
+</html>
